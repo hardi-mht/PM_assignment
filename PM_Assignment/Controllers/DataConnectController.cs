@@ -10,6 +10,7 @@ using PM_Assignment;
 
 namespace PM_Assignment.Controllers
 {
+    [Authorize]
     public class DataConnectController : Controller
     {
         private ProductManagementEntities db = new ProductManagementEntities();

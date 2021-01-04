@@ -11,12 +11,24 @@ namespace PM_Assignment
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class user_master
     {
         public int Id { get; set; }
+
+        [Required(ErrorMessage = "Name is mandatory")]
+        [MinLength(3)]
+        [MaxLength(15)]
         public string Name { get; set; }
+
+        [Required(ErrorMessage = "Email-ID is mandatory")]
+        [DataType(DataType.EmailAddress)]
+        [EmailAddress]
         public string EmailID { get; set; }
+        
+        [Required]
+        [StringLength(maximumLength: 50, MinimumLength = 6,ErrorMessage = "Password should have atleast {2} characters")]
         public string Password { get; set; }
     }
 }

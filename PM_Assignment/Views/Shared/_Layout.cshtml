@@ -17,10 +17,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Application name", "Index", "DataConnect", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li><a>Dear- @User.Identity.Name</a></li>
+                        <li>@Html.ActionLink("Logout", "Logout", "Home")</li>
+                    }
+
                 </ul>
             </div>
         </div>
@@ -28,10 +34,7 @@
 
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+        
     </div>
 
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>

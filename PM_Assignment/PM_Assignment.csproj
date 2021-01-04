@@ -97,6 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\bg-01.jpg" />
     <Content Include="Content\infinite-slider.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\style.css" />
@@ -116,6 +117,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DataConnectController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DataBase.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -156,6 +158,8 @@
     <Content Include="Views\DataConnect\Details.cshtml" />
     <Content Include="Views\DataConnect\Edit.cshtml" />
     <Content Include="Views\DataConnect\Index.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Signup.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
