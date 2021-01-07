@@ -26,5 +26,9 @@ namespace PM_Assignment
         }
     
         public virtual DbSet<user_master> user_master { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Item> Items { get; set; }
+
+        public System.Data.Entity.DbSet<PM_Assignment.Models.AddProductModel> AddProductModels { get; set; }
     }
 }

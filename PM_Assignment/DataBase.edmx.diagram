@@ -6,6 +6,8 @@
     <edmx:Diagrams>
       <Diagram DiagramId="0ec3b1de68dc4adda0d0793894fbac43" Name="Diagram1">
         <EntityTypeShape EntityType="ProductManagementModel.user_master" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProductManagementModel.Category" Width="1.5" PointX="8.5" PointY="0.5" />
+        <EntityTypeShape EntityType="ProductManagementModel.Item" Width="1.5" PointX="5.5" PointY="3.5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

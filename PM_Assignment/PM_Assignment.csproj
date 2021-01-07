@@ -112,12 +112,31 @@
       <LastGenOutput>DataBase.cs</LastGenOutput>
     </Content>
     <Content Include="Global.asax" />
+    <None Include="Scripts\jquery-1.8.0.intellisense.js" />
+    <Content Include="Scripts\jquery-1.8.0.js" />
+    <Content Include="Scripts\jquery-1.8.0.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Web.config" />
+    <Content Include="Views\Home\ProductList.cshtml" />
+    <Content Include="Views\ItemDataConnect\Create.cshtml" />
+    <Content Include="Views\ItemDataConnect\Delete.cshtml" />
+    <Content Include="Views\ItemDataConnect\Details.cshtml" />
+    <Content Include="Views\ItemDataConnect\Edit.cshtml" />
+    <Content Include="Views\ItemDataConnect\Index.cshtml" />
+    <Content Include="Views\Home\AddProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Category.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\DataConnectController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ItemDataConnectController.cs" />
     <Compile Include="DataBase.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -136,6 +155,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Item.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\AddProductModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="user_master.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
@@ -169,7 +193,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Images\LargeImages\" />
+    <Folder Include="Images\SmallImages\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

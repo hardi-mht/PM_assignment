@@ -12,11 +12,10 @@ namespace PM_Assignment
     using System;
     using System.Collections.Generic;
     
-    public partial class user_master
+    public partial class Category
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string EmailID { get; set; }
-        public string Password { get; set; }
+        public int CategoryId { get; set; }
+        public string CategoryCode { get; set; }
+        public string CategoryName { get; set; }
     }
 }
