@@ -74,25 +74,15 @@ namespace PM_Assignment.Controllers
 
         public ActionResult AddProduct()
         {
-           /* string constr = ConfigurationManager.ConnectionStrings["ProductManagementEntities"].ToString();
-            SqlConnection _con = new SqlConnection(constr);
-            SqlDataAdapter _da = new SqlDataAdapter("Select CategoryId,CategoryName From Categories", constr);
-            DataTable _dt = new DataTable();
-            _da.Fill(_dt);
-            ViewBag.CategoryList = (_dt, "CategoryId", "CategoryName");
-            ViewBag.CityList = ToSelectList(_dt, "CategoryId", "CategoryName");
-           */
             AddProductModel objaddProductModel = new AddProductModel();
             objaddProductModel.CategoryList = (from objCat in dbobj.Categories
-                                                select new SelectListItem()
-                                                 {
-                                                     Text = objCat.CategoryName,
-                                                     Value = objCat.CategoryId.ToString(),
-                                                     Selected = true
-
-                                                 });
-
-
+                                               select new SelectListItem()
+                                               {
+                                                   Text = objCat.CategoryName,
+                                                   Value = objCat.CategoryId.ToString(),
+                                                   Selected = true
+                                               });
+            ViewBag.CategoryList = objaddProductModel.CategoryList;
             return View(objaddProductModel);
         }
 
@@ -115,8 +105,9 @@ namespace PM_Assignment.Controllers
 
 
             Item obItem = new Item();
-            obItem.CategoryId = objaddproduct.CategoryId;
-            obItem.ItemCode = objaddproduct.ItemCode;
+            obItem.CategoryId = Int16.Parse(objaddproduct.Category_Id);
+            //obItem.ItemCode = objaddproduct.ItemCode;
+            obItem.ItemCode = "code";
             obItem.ItemName = objaddproduct.ItemName;
             obItem.ShortDescription = objaddproduct.ShortDescription;
             obItem.LongDescription = objaddproduct.LongDescription;

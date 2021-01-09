@@ -13,33 +13,34 @@ namespace PM_Assignment.Models
         [Key]
         public System.Guid ItemId { get; set; }
 
-        [DisplayName("Item Code")]
+        [DisplayName("Category :")]
+        public string Category_Id { get; set; }
+        public IEnumerable<SelectListItem> CategoryList { get; set; }
+
+        [DisplayName("Item Code :")]
         public string ItemCode { get; set; }
 
-        [DisplayName("Item Name")]
+        [DisplayName("Item Name :")]
         public string ItemName { get; set; }
 
-        [DisplayName("Short Description")]
+        [DisplayName("Short Description :")]
         public string ShortDescription { get; set; }
 
-        [DisplayName("Long Description")]
+        [DisplayName("Long Description :")]
         public string LongDescription { get; set; }
 
-        [DisplayName("Upload Small Image")]
+
+        [DisplayName("Upload Small Image :")]
         public string SmallImagePath { get; set; }
 
-        [DisplayName("Upload Large Image")]
+
+        [DisplayName("Upload Large Image :")]
         public string LongImagePath { get; set; }
 
         public HttpPostedFileBase SmallImageFile { get; set; }
         public HttpPostedFileBase LongImageFile { get; set; }
 
-        [DisplayName("Item Price")]
+        [DisplayName("Item Price :")]
         public decimal ItemPrice { get; set; }
-
-        [DisplayName("Category")]
-        public int CategoryId { get; set; }
-        public IEnumerable<SelectListItem> CategoryList { get; set; }
-
     }
 }

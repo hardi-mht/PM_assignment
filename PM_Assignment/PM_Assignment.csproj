@@ -127,7 +127,6 @@
     <Content Include="Views\ItemDataConnect\Details.cshtml" />
     <Content Include="Views\ItemDataConnect\Edit.cshtml" />
     <Content Include="Views\ItemDataConnect\Index.cshtml" />
-    <Content Include="Views\Home\AddProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -184,6 +183,7 @@
     <Content Include="Views\DataConnect\Index.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\Signup.cshtml" />
+    <Content Include="Views\Home\AddProduct.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
