@@ -1,7 +1,38 @@
-﻿
+﻿@model IEnumerable<PM_Assignment.Item>
+
 @{
     ViewBag.Title = "ProductList";
 }
 
-<h2>ProductList</h2>
-
+<h2>Product List</h2>
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3"style="border:2px solid black; text-align:center">
+            <div class="row" >
+                <h4 ><b><span id="itemName" style="color:black">@item.ItemName</span> </b></h4>
+            </div>
+            <div class="row">
+                <p>
+                    <img src="\Images\SmallImages\@Path.GetFileName(@item.SmallImagePath)" height="150px" width="150px" />
+                </p>
+                <p>
+                    <h5> Description : <span id="itemdescription" style="color:black">@item.ShortDescription</span></h5>
+                </p>
+                <p>
+                    <h5> Price : <span id="itemPrice" style="color:black">@item.ItemPrice</span></h5>
+                </p>
+                <p>
+                    <a class="btn btn-success" href="@Url.Action("Edit", "ItemDataConnect", new { id = item.ItemId })" data-toggle="tooltip" data-placement="top" title="Edit">Edit</a>
+                    &nbsp;
+                    <a class="btn btn-danger" href="@Url.Action("Delete", "ItemDataConnect", new { id = item.ItemId })" data-toggle="tooltip" data-placement="top" title="Delete">Delete</a>
+                </p>
+            </div>
+        </div>
+    }
+</div>

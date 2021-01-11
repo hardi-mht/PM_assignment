@@ -68,7 +68,7 @@ namespace PM_Assignment.Controllers
 
         public ActionResult ProductList()
         {
-            return View();
+            return View(dbobj.Items.ToList());
         }
 
 
@@ -105,9 +105,9 @@ namespace PM_Assignment.Controllers
 
 
             Item obItem = new Item();
+            
             obItem.CategoryId = Int16.Parse(objaddproduct.Category_Id);
-            //obItem.ItemCode = objaddproduct.ItemCode;
-            obItem.ItemCode = "code";
+            obItem.ItemCode = objaddproduct.ItemCode;
             obItem.ItemName = objaddproduct.ItemName;
             obItem.ShortDescription = objaddproduct.ShortDescription;
             obItem.LongDescription = objaddproduct.LongDescription;
@@ -116,8 +116,11 @@ namespace PM_Assignment.Controllers
             obItem.LongImagePath = objaddproduct.LongImagePath;
             obItem.ItemId = Guid.NewGuid();
 
+            
+
             dbobj.Items.Add(obItem);
             dbobj.SaveChanges();
+            
             return View();
         }
     }
