@@ -8,7 +8,8 @@ using System.Web.Security;
 using System.IO;
 using System.Configuration;
 using System.Data;
-using System.Data.SqlClient;
+using PagedList.Mvc;
+using PagedList;
 
 namespace PM_Assignment.Controllers
 {
@@ -66,12 +67,12 @@ namespace PM_Assignment.Controllers
         }
 
 
-        public ActionResult ProductList()
+        public ActionResult ProductList(int? i,string search)
         {
-            return View(dbobj.Items.ToList());
+            return View(dbobj.Items.Where(x => x.ItemName == search || search == null).ToList().ToPagedList(i ?? 1, 10));
         }
 
-
+       
         public ActionResult AddProduct()
         {
             AddProductModel objaddProductModel = new AddProductModel();

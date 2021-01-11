@@ -1,21 +1,36 @@
-﻿@model IEnumerable<PM_Assignment.Item>
+﻿@model IPagedList<PM_Assignment.Item>
 
 @{
     ViewBag.Title = "ProductList";
 }
 
-<h2>Product List</h2>
+@using PagedList.Mvc;
+@using PagedList;
+
+<h2>Shopping</h2>
 <script>
     $(function () {
         $('[data-toggle="tooltip"]').tooltip();
     });
 </script>
+
+@using (Html.BeginForm("ProductList", "Home", FormMethod.Get))
+{
+<div style="text-align:right">
+    <b>Search :</b>
+    @Html.TextBox("search")
+    <input type="submit" name="submit" value="Search" class="btn btn-default"/>
+    
+</div>
+}
+&nbsp;
+
 <div class="row">
     @foreach (var item in Model)
     {
-        <div class="col-md-3"style="border:2px solid black; text-align:center">
-            <div class="row" >
-                <h4 ><b><span id="itemName" style="color:black">@item.ItemName</span> </b></h4>
+        <div class="col-md-3" style="border:2px solid black; text-align:center">
+            <div class="row">
+                <h4><b><span id="itemName" style="color:black">@item.ItemName</span> </b></h4>
             </div>
             <div class="row">
                 <p>
@@ -28,11 +43,15 @@
                     <h5> Price : <span id="itemPrice" style="color:black">@item.ItemPrice</span></h5>
                 </p>
                 <p>
-                    <a class="btn btn-success" href="@Url.Action("Edit", "ItemDataConnect", new { id = item.ItemId })" data-toggle="tooltip" data-placement="top" title="Edit">Edit</a>
+                    <a href="@Url.Action("Edit", "ItemDataConnect", new { id = item.ItemId })" data-toggle="tooltip" data-placement="top" title="Edit">Edit</a>
                     &nbsp;
-                    <a class="btn btn-danger" href="@Url.Action("Delete", "ItemDataConnect", new { id = item.ItemId })" data-toggle="tooltip" data-placement="top" title="Delete">Delete</a>
+                    <a href="@Url.Action("Delete", "ItemDataConnect", new { id = item.ItemId })" data-toggle="tooltip" data-placement="top" title="Delete">Delete</a>
                 </p>
             </div>
         </div>
     }
+</div>
+
+<div style="text-align:right">
+    @Html.PagedListPager(Model, i => Url.Action("ProductList", "Home", new { i, search = Request.QueryString["search"] }))
 </div>
